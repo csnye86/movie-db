@@ -1,19 +1,18 @@
 import React from 'react'
+import Modal from './Modal'
 
-const Sidebar = ({title, clickHandler}) => {
+const Sidebar = props => {
+  const {title, genres} = props
 	return (
 		<div>
+      <Modal />
 			<h1 className='my-4'>{title}</h1>
 			<div className='list-group'>
-				<a href='#' className='list-group-item'>
-					Category 1
-				</a>
-				<a href='#' className='list-group-item'>
-					Category 2
-				</a>
-				<a href='#' className='list-group-item'>
-					Category 3
-				</a>
+        {
+          genres.map((genre, i) => {
+            return <a href='#' className='list-group-item' key={genre + i}>{genre.name}</a>
+          })
+        }
 			</div>
 		</div>
 	)

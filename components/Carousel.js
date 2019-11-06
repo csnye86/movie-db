@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Carousel = () => {
-  return (
+const Carousel = ({ images }) => {
+	return (
 		<div>
 			<div
 				id='carouselExampleIndicators'
@@ -9,36 +9,29 @@ const Carousel = () => {
 				data-ride='carousel'
 			>
 				<ol className='carousel-indicators'>
-					<li
-						data-target='#carouselExampleIndicators'
-						data-slide-to='0'
-						className='active'
-					></li>
-					<li data-target='#carouselExampleIndicators' data-slide-to='1'></li>
-					<li data-target='#carouselExampleIndicators' data-slide-to='2'></li>
+					{images.map((image, i) => {
+						return (
+							<li
+								key={image + i}
+								data-target='#carouselExampleIndicators'
+								data-slide-to={image.id}
+								className={i === 0 ? 'active' : null}
+							></li>
+						)
+					})}
 				</ol>
 				<div className='carousel-inner' role='listbox'>
-					<div className='carousel-item active'>
-						<img
-							className='d-block img-fluid'
-							src='http://placehold.it/900x350'
-							alt='First slide'
-						/>
-					</div>
-					<div className='carousel-item'>
-						<img
-							className='d-block img-fluid'
-							src='http://placehold.it/900x350'
-							alt='Second slide'
-						/>
-					</div>
-					<div className='carousel-item'>
-						<img
-							className='d-block img-fluid'
-							src='http://placehold.it/900x350'
-							alt='Third slide'
-						/>
-					</div>
+					{images.map((image, i) => {
+						return (
+							<div className={`carousel-item ${i === 0 ? 'active' : null}`} key={image + i}>
+								<img
+									className='d-block img-fluid'
+									src={image.url}
+									alt={image.movieTitle}
+								/>
+							</div>
+						)
+					})}
 				</div>
 				<a
 					className='carousel-control-prev'
@@ -65,6 +58,12 @@ const Carousel = () => {
 					<span className='sr-only'>Next</span>
 				</a>
 			</div>
+
+      <style jsx>{`
+        .carousel-item {
+          max-height: 400px;
+        }
+        `}</style>
 		</div>
 	)
 }
