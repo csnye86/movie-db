@@ -1,0 +1,44 @@
+[
+  {
+    "id": "2",
+    "name": "The Dark Knight",
+    "releaseYear": 2008,
+    "descriptionShort": "When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham. The Dark Knight must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad itaque excepturi dignissimos laudantium obcaecati quam blanditiis earum veniam, dicta, velit, quo tenetur dolore ducimus repellat neque, architecto magni in cum.",
+    "rating": 4.7,
+    "genre": "action, crime, drama",
+    "cover": "https://images.unsplash.com/photo-1497124401559-3e75ec2ed794?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+    "image": "https://img.cinemablend.com/filter:scale/quill/c/3/8/0/f/4/c380f4f12cfeec19f0c40c6f57db188f2f98cca8.jpg?mw=600"
+  },
+  {
+    "id": "3",
+    "name": "Lord of the Rings",
+    "releaseYear": 2004,
+    "descriptionShort": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, beatae aliquid excepturi! Distinctio temporibus modi eos in facere eum, eligendi incidunt? Eligendi, ea, explicabo. Repellat laboriosam suscipit natus totam dolores?",
+    "rating": 4.9,
+    "genre": "adventure, drama, fantasy",
+    "cover": "https://images.unsplash.com/photo-1462759353907-b2ea5ebd72e7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2389&q=80",
+    "image": "https://img.cinemablend.com/filter:scale/quill/0/f/5/2/a/6/0f52a6843a25c1a5c1f9a0c00548cad9e1d912e2.jpg?mw=600"
+  },
+  {
+    "name": "Breaking Bad",
+    "descriptionShort": "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future.",
+    "rating": "5",
+    "image": "https://static0.srcdn.com/wordpress/wp-content/uploads/2019/01/Breaking-Bad-Movie-Characters.jpg",
+    "cover": "https://633987.smushcdn.com/907311/wp-content/uploads/2018/08/breaking-bad-1300x731.jpg?lossy=1&strip=1&webp=1",
+    "description": "When chemistry teacher Walter White is diagnosed with Stage III cancer and given only two years to live, he decides he has nothing to lose. He lives with his teenage son, who has cerebral palsy, and his wife, in New Mexico. Determined to ensure that his family will have a secure future, Walt embarks on a career of drugs and crime. He proves to be remarkably proficient in this new world as he begins manufacturing and selling methamphetamine with one of his former students. The series tracks the impacts of a fatal diagnosis on a regular, hard working man, and explores how a fatal diagnosis affects his morality and transforms him into a major player of the drug trade.",
+    "genre": "drama,action",
+    "id": "4"
+  },
+  {
+    "name": ";lkj;lkj;",
+    "descriptionShort": ";lkj;lkj",
+    "rating": "3",
+    "image": ";lkj",
+    "cover": ";lkj",
+    "description": ";lkj",
+    "genre": "music",
+    "id": "9"
+  }
+]
