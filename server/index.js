@@ -45,17 +45,36 @@ app.prepare().then(() => {
 			if (err) res.status(422).send(err)
 			return res.json('Successfully added movie')
 		})
-	})
+  })
+  
+  	server.patch('/api/v1/movies/:id', (req, res) => {
+      const { id } = req.params
+      const movie = req.body
+      const movieIndex = moviesData.findIndex(m => m.id === id)
+      moviesData[movieIndex] = movie
 
-	server.get('*', (req, res) => {
-		// NEXTJS IS HANDLING REQUESTS AND PROVIDING PAGES WE NAVIGATE TO
-		return handle(req, res)
-	})
+			const pathToFile = path.join(__dirname, filePath)
+			const stringifiedData = JSON.stringify(moviesData, null, 2)
+			fs.writeFile(pathToFile, stringifiedData, err => {
+				if (err) res.status(422).send(err)
+				return res.json('Successfully updated movie')
+			})
+		})
+
+	// server.get('*', (req, res) => {
+	// 	// NEXTJS IS HANDLING REQUESTS AND PROVIDING PAGES WE NAVIGATE TO
+	// 	return handle(req, res)
+	// })
+	// server.post('*', (req, res) => {
+	// 	// NEXTJS IS HANDLING REQUESTS AND PROVIDING PAGES WE NAVIGATE TO
+	// 	return handle(req, res)
+	// })
 
 	const PORT = process.env.PORT || 3000
 
 	server.use(handle).listen(PORT, err => {
 		if (err) throw err
 		console.log('> Ready on port ' + PORT)
-	})
+  })
+  
 })

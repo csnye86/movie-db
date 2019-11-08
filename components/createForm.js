@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 const MovieCreateForm = (props) => {
   const defaultData = {
@@ -12,13 +12,6 @@ const MovieCreateForm = (props) => {
   }
   const formData = props.initialData ? {...props.initialData} : defaultData
   const [form, setForm] = useState({...formData})
-
-  console.log('form', form)
-
-  // useEffect(() => {
-  //   if(props.initialData)
-  //   setForm(props.initialData)
-  // }, [props.initialData])
 
   const handleGenreChange = (e) => {
     const {options} = e.target
@@ -150,15 +143,15 @@ const MovieCreateForm = (props) => {
 					name='genre'
 					onChange={handleGenreChange}
 				>
-					<option>drama</option>
-					<option>music</option>
-					<option>adventure</option>
-					<option>historical</option>
-					<option>action</option>
+					<option>Drama</option>
+					<option>Music</option>
+					<option>Adventure</option>
+					<option>Historical</option>
+					<option>Action</option>
 				</select>
 			</div>
 			<button type='button' className='btn btn-primary mb-2' onClick={submitForm}>
-				Add
+				{props.btnText || 'Add'}
 			</button>
 		</form>
 	)

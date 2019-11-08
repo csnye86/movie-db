@@ -1,14 +1,11 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Link from 'next/link'
-import GlobalContext from '../context/GlobalContext'
 
 const MoviesCollection = ({ movies }) => {
 	const shorten = text => {
 		if (text && text.length > 200) return text.substr(0, 200) + ' ...'
 		return text
-	}
-
-	// const {movieData} = useContext(GlobalContext)
+  }
 
 	return (
 		<>
@@ -26,7 +23,7 @@ const MoviesCollection = ({ movies }) => {
 									<a>{movie.name}</a>
 								</Link>
 							</h4>
-							<h5>{movie.price}</h5>
+              <p className='genre'>{movie.genre}</p>
 							<p className='card-text'>{shorten(movie.descriptionShort)}</p>
 						</div>
 						<div className='card-footer'>

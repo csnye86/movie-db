@@ -7,29 +7,17 @@ import GlobalContext from '../context/GlobalContext'
 import { getMovies, getGenres } from '../actions/index'
 
 const Home = ({ images, movies, genres }) => {
-	// const [movies, setMovies] = useState([])
-	// const [error, setError] = useState('')
+	const [filter, setFilter] = useState('All')
 
-	// DIFFERENT WAYS OF RETRIEVING MOVIE DATA ARE SHOWN - EG. GLOBALCONTEXT, RETRIEVING 'ASYNC' DATA FROM /ACTIONS/INDEX.JS AS WELL AS TWO DIFFERENT USEEFFECTS WHICH DO THE SAME THING. ALL CLIENT-SIDE
+	const changeGenre = genre => {
+		setFilter(genre)
+	}
 
-	// useEffect(() => {
-	//   getMovies()
-	//   .then(res => {
-	//     setMovies(res)
-	//   })
-	//   .catch(err => {
-	//     setError(err)
-	//   })
-	// }, [])
+	const filterMovies = movies => {
+    if (filter === 'All') return movies
+    else return movies.filter(m => m.genre && m.genre.includes(filter))
+	}
 
-	// OR BELOW. THEY ARE THE SAME
-
-	// useEffect(() => {
-	//   const fetchData = async () => {
-	//     setMovies(await getMovies())
-	//   }
-	//   fetchData()
-	// }, [])
 
 	return (
 		<GlobalContext.Provider value={{ movieData }}>
@@ -38,13 +26,18 @@ const Home = ({ images, movies, genres }) => {
 					<div className='container'>
 						<div className='row'>
 							<div className='col-lg-3'>
-								<Sidebar title='MoviesDB' genres={genres}/>
+								<Sidebar
+									title='MoviesDB'
+									genres={genres}
+									changeGenre={changeGenre}
+									activeGenre={filter}
+								/>
 							</div>
 							<div className='col-lg-9'>
 								<Carousel images={images || []} />
+								<h1 className='mb-2'>Showing: {filter || 'All'}</h1>
 								<div className='row'>
-									{/* {error && <div className='alert alert-danger'>{error}</div> } */}
-									<MoviesCollection movies={movies || []} />
+									<MoviesCollection movies={filterMovies(movies) || []} />
 								</div>
 							</div>
 						</div>

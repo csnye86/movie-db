@@ -1,18 +1,18 @@
 import React from 'react'
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 import Modal from './Modal'
 import MovieCreateForm from '../components/createForm'
 import { addMovie } from '../actions'
 
 const Sidebar = props => {
-  const { title, genres } = props
-  const router = useRouter()
+	const { title, genres } = props
+	const router = useRouter()
 	let modal = null
 
 	const handleAddMovie = movie => {
 		addMovie(movie).then(res => {
-      modal.closeModal()
-      router.push('/')
+			modal.closeModal()
+			router.push('/')
 		})
 	}
 
@@ -25,7 +25,12 @@ const Sidebar = props => {
 			<div className='list-group'>
 				{genres.map((genre, i) => {
 					return (
-						<a href='#' className='list-group-item' key={genre + i}>
+						<a
+							href='#'
+							className={`list-group-item ${props.activeGenre === genre.name ? 'active' : null}`}
+							key={genre + i}
+							onClick={() => props.changeGenre(genre.name)}
+						>
 							{genre.name}
 						</a>
 					)

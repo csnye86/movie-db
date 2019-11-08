@@ -4,6 +4,9 @@ import Head from 'next/head'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
+//SCSS STYLESHEETS!
+import '../styles/index.scss'
+
 class MovieApp extends App {
   
   static getInitialProps = async (appContext) => {
